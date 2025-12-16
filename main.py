@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 from datetime import datetime
 
@@ -15,7 +15,7 @@ def about():
     return render_template("about.html", year=datetime.now().year)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=['GET', 'POST'])
 def contact():
     return render_template("contact.html", year=datetime.now().year)
 
